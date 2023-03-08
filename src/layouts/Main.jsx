@@ -15,8 +15,9 @@ const Main = () => {
 
   return (
     <div>
-      <h1>{userName}</h1>
+      <h1>Main</h1>
       <Outlet />
+      <h1>Main</h1>
     </div>
   )
 }
