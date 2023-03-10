@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 
 // Components
 import Intro from "../components/Intro";
+import AddBudgetForm from "../components/AddBudgetForm";
 
 //  Helper functions  
 import { fetchData } from "../helpers"
