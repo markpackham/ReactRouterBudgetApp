@@ -33,7 +33,11 @@ const Dashboard = () => {
 
   return (
     <>
-      {userName ? (<p>{userName}</p>) : <Intro /> }
+      {userName ? (
+        <div className="dashboard">
+          <h1>Welcome back, <span className="accent">{userName}</span></h1>
+        </div>
+      ) : <Intro /> }
     </>
   )
 }
