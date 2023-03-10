@@ -21,13 +21,18 @@ export function dashboardLoader() {
 // Action
 export async function dashboardAction({request}){
   const data = await request.formData();
-  const formData = Object.fromEntries(data)
-  try {
-    localStorage.setItem("userName", JSON.stringify(formData.userName))
-    return toast.success(`Welcome, ${formData.userName}`)
-  } catch (error) {
-    throw new Error("There was a problem with user creation")
+  const {_action, ...values} = Object.fromEntries(data)
+
+  // new user submission
+  if(_action === "newUser"){
+    try {
+      localStorage.setItem("userName", JSON.stringify(formData.userName))
+      return toast.success(`Welcome, ${formData.userName}`)
+    } catch (error) {
+      throw new Error("There was a problem with user creation")
+    }
   }
+
 }
 
 const Dashboard = () => {
