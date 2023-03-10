@@ -1,5 +1,8 @@
 import { Form } from "react-router-dom"
 
+// Libraries
+import { CurrencyPoundIcon } from "@heroicons/react/24/solid"
+
 const AddBudgetForm = () => {
   return (
     <div className="form-wrapper">
@@ -20,6 +23,10 @@ const AddBudgetForm = () => {
             inputMode="decimal"
             />
         </div>
+        <button type="submit" className="btn btn--dark">
+            <span>Create Budget</span>
+            <CurrencyPoundIcon width={20} />
+        </button>
         </Form>
     </div>
   )
