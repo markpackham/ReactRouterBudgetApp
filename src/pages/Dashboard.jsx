@@ -26,13 +26,20 @@ export async function dashboardAction({request}){
   // new user submission
   if(_action === "newUser"){
     try {
-      localStorage.setItem("userName", JSON.stringify(formData.userName))
-      return toast.success(`Welcome, ${formData.userName}`)
+      localStorage.setItem("userName", JSON.stringify(values.userName))
+      return toast.success(`Welcome, ${values.userName}`)
     } catch (error) {
       throw new Error("There was a problem with user creation")
     }
   }
 
+  if(_action === "createBudget"){
+    try {
+      
+    } catch (error) {
+      throw new Error("There was a problem with budget creation")
+    }
+  }
 }
 
 const Dashboard = () => {
