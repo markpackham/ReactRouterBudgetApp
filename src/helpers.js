@@ -1,6 +1,6 @@
 // Time delay function (mainly for testing)
 export const waaaait = () =>
-  new Promise((res) => setTimeout(res, Math() * 800));
+  new Promise((res) => setTimeout(res, Math.random() * 800));
 
 // Colors
 const generateRandomColor = () => {
