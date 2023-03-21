@@ -1,5 +1,11 @@
+// Time delay function (mainly for testing)
+export const waaaait = () =>
+  new Promise((res) => setTimeout(res, Math() * 800));
+
+// Colors
 const generateRandomColor = () => {
   const existingBudgetLength = fetchData("budgets")?.length ?? 0;
+  // using hsl for CSS so multiplication can be used
   return `${existingBudgetLength * 34} 65% 50%`;
 };
 

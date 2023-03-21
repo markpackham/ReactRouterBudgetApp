@@ -49,7 +49,7 @@ const AddBudgetForm = () => {
           />
         </div>
         <input type="hidden" name="_action" value="createBudget" />
-        <button type="submit" className="btn btn--dark">
+        <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
           <span>Create Budget</span>
           <CurrencyPoundIcon width={20} />
         </button>
