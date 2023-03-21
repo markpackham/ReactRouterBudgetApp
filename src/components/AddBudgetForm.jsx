@@ -1,9 +1,10 @@
-import { Form } from "react-router-dom"
+import { Form, useFetcher } from "react-router-dom"
 
 // Libraries
 import { CurrencyPoundIcon } from "@heroicons/react/24/solid"
 
 const AddBudgetForm = () => {
+    const fetcher = useFetcher()
   return (
     <div className="form-wrapper">
         <h2 className="h3">
@@ -19,7 +20,7 @@ const AddBudgetForm = () => {
             <input type="number" step="0.01"
             name="newBudgetAmount" id="newBudgetAmount" placeholder="e.g £50"
             required
-            // decimal mode is handy for mobiles since it offers the "." symbol when typing
+            // Decimal mode is handy for mobiles since it offers the "." symbol when typing
             inputMode="decimal"
             />
         </div>
