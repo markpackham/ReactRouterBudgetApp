@@ -47,6 +47,15 @@ export async function dashboardAction({ request }) {
       throw new Error("There was a problem with budget creation");
     }
   }
+
+  if (_action === "createExpense") {
+    try {
+      // createExpense
+      return toast.success(`Expense ${values.newExpense} created!`);
+    } catch (error) {
+      throw new Error("There was a problem creating your expense.");
+    }
+  }
 }
 
 const Dashboard = () => {

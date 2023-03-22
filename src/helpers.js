@@ -31,6 +31,22 @@ export const createBudget = ({ name, amount }) => {
   );
 };
 
+// create expense
+export const createExpense = ({ name, amount }) => {
+  const newItem = {
+    id: crypto.randomUUID(),
+    name: name,
+    createdAt: Date.now(),
+    amount: +amount,
+  };
+  // check if null, then if so send back an empty array
+  const existingBugets = fetchData("budgets") ?? [];
+  return localStorage.setItem(
+    "bugets",
+    JSON.stringify([...existingBugets, newItem])
+  );
+};
+
 // delete item
 export const deleteItem = ({ key }) => {
   return localStorage.removeItem(key);
