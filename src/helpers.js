@@ -24,26 +24,26 @@ export const createBudget = ({ name, amount }) => {
     color: generateRandomColor(),
   };
   // check if null, then if so send back an empty array
-  const existingBugets = fetchData("budgets") ?? [];
+  const existingBudgets = fetchData("budgets") ?? [];
   return localStorage.setItem(
-    "bugets",
-    JSON.stringify([...existingBugets, newItem])
+    "budgets",
+    JSON.stringify([...existingBudgets, newItem])
   );
 };
 
 // create expense
-export const createExpense = ({ name, amount }) => {
+export const createExpense = ({ name, amount, budgetId }) => {
   const newItem = {
     id: crypto.randomUUID(),
     name: name,
     createdAt: Date.now(),
     amount: +amount,
+    budgetId: budgetId,
   };
-  // check if null, then if so send back an empty array
-  const existingBugets = fetchData("budgets") ?? [];
+  const existingExpenses = fetchData("expenses") ?? [];
   return localStorage.setItem(
-    "bugets",
-    JSON.stringify([...existingBugets, newItem])
+    "expenses",
+    JSON.stringify([...existingExpenses, newItem])
   );
 };
 
