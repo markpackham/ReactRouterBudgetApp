@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 // Components
 import Intro from "../components/Intro";
 import AddBudgetForm from "../components/AddBudgetForm";
+import AddExpenseForm from "../components/AddExpenseForm";
 
 //  Helper functions
 import { createBudget, fetchData, waaaait } from "../helpers";
@@ -59,12 +60,20 @@ const Dashboard = () => {
             Welcome back, <span className="accent">{userName}</span>
           </h1>
           <div className="grid-sm">
-            {/* {budgets ? () : ()} */}
-            <div className="grid-lg">
-              <div className="flex-lg">
-                <AddBudgetForm />
+            {bugets && bugets.length > 0 ? (
+              <div className="grid-lg">
+                <div className="flex-lg">
+                  <AddBudgetForm />
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="grid-sm">
+                <p>Personal bugeting is the secret to financial freedom</p>
+                <p>Create a budget to get started</p>
+                <AddBudgetForm />
+                <AddExpenseForm budgets={budgets} />
+              </div>
+            )}
           </div>
         </div>
       ) : (
