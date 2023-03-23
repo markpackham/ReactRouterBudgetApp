@@ -4,14 +4,15 @@ import { useLoaderData } from "react-router-dom";
 // library imports
 import { toast } from "react-toastify";
 
+//  helper functions
+import { createBudget, createExpense, fetchData, waait } from "../helpers";
+
 // components
 import Intro from "../components/Intro";
 import AddBudgetForm from "../components/AddBudgetForm";
 import AddExpenseForm from "../components/AddExpenseForm";
 import BudgetItem from "../components/BudgetItem";
-
-//  helper functions
-import { createBudget, createExpense, fetchData, waait } from "../helpers";
+import Table from "../components/Table";
 
 // loader
 export function dashboardLoader() {
@@ -87,6 +88,16 @@ const Dashboard = () => {
                     <BudgetItem key={budget.id} budget={budget} />
                   ))}
                 </div>
+                {expenses && expenses.length > 0 && (
+                  <div className="grid-md">
+                    <h2>Recent Expenses</h2>
+                    <Table
+                      expenses={expenses.sort(
+                        (a, b) => b.createdAt - a.createdAt
+                      )}
+                    />
+                  </div>
+                )}
               </div>
             ) : (
               <div className="grid-sm">
