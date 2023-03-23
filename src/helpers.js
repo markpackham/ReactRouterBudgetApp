@@ -7,7 +7,7 @@ const generateRandomColor = () => {
   return `${existingBudgetLength * 34} 65% 50%`;
 };
 
-// Local storage
+// local storage
 export const fetchData = (key) => {
   return JSON.parse(localStorage.getItem(key));
 };
@@ -49,9 +49,23 @@ export const deleteItem = ({ key }) => {
   return localStorage.removeItem(key);
 };
 
+// total spent by budget
+export const calculateSpentByBudget = (budgetId) => {
+  const expenses = fetchData("expenses") ?? [];
+  // acc is the accumulator (thus our total value)
+  const budgetSpent = expenses.reduce((acc, expense) => {
+    // check if the expense.d === budgetId I passed in otherwise exlude it
+    if (expense.budgetId !== budgetId) return acc;
+
+    // add the current amount to my total
+    return (acc += expense.amount);
+  }, 0);
+  return budgetSpent;
+};
+
 // FORMATTING
 
-// Format currency
+// format currency
 export const formatCurrency = (amt) => {
   // since we set the locale to undefined it sets the locale based on who visits the site
   return amt.toLocaleString(undefined, {
