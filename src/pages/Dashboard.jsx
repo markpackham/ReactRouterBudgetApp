@@ -62,6 +62,7 @@ export async function dashboardAction({ request }) {
     }
   }
 }
+
 const Dashboard = () => {
   const { userName, budgets } = useLoaderData();
 
@@ -77,22 +78,22 @@ const Dashboard = () => {
               <div className="grid-lg">
                 <div className="flex-lg">
                   <AddBudgetForm />
+                  <AddExpenseForm budgets={budgets} />
+                </div>
+                <h2>Existing Budgets</h2>
+                <div className="budgets">
+                  {budgets.map((budget) => (
+                    <BudgetItem key={budget.id} budget={budget} />
+                  ))}
                 </div>
               </div>
             ) : (
               <div className="grid-sm">
-                <p>Personal budget is the secret to financial freedom</p>
-                <p>Create a budget to get started</p>
+                <p>Personal budgeting is the secret to financial freedom.</p>
+                <p>Create a budget to get started!</p>
                 <AddBudgetForm />
-                <AddExpenseForm budgets={budgets} />
               </div>
             )}
-          </div>
-          <h2>Existing Budgets</h2>
-          <div className="budgets">
-            {budgets.map((budget) => {
-              <BudgetItem key={budget.id} budget={budget} />;
-            })}
           </div>
         </div>
       ) : (
