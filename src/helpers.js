@@ -1,11 +1,9 @@
-// Time delay function (mainly for testing)
-export const waaaait = () =>
-  new Promise((res) => setTimeout(res, Math.random() * 800));
+export const waait = () =>
+  new Promise((res) => setTimeout(res, Math.random() * 2000));
 
-// Colors
+// colors
 const generateRandomColor = () => {
   const existingBudgetLength = fetchData("budgets")?.length ?? 0;
-  // using hsl for CSS so multiplication can be used
   return `${existingBudgetLength * 34} 65% 50%`;
 };
 
@@ -23,7 +21,6 @@ export const createBudget = ({ name, amount }) => {
     amount: +amount,
     color: generateRandomColor(),
   };
-  // check if null, then if so send back an empty array
   const existingBudgets = fetchData("budgets") ?? [];
   return localStorage.setItem(
     "budgets",
