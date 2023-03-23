@@ -54,5 +54,8 @@ export const deleteItem = ({ key }) => {
 // Format currency
 export const formatCurrency = (amt) => {
   // since we set the locale to undefined it sets the locale based on who visits the site
-  return amt.toLocaleString(undefined, {});
+  return amt.toLocaleString(undefined, {
+    style: "currency",
+    currency: "GBP",
+  });
 };
