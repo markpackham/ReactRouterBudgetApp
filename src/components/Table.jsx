@@ -3,12 +3,12 @@ const Table = ({ expenses }) => {
     <div className="Table">
       <table>
         <thead>
-          <tr></tr>
+          <tr>{["Name"]}</tr>
         </thead>
         <tbody>
-          {expenses.map((expense) => {
-            <tr key={expense.id}>{expense.name}</tr>;
-          })}
+          {expenses.map((expense) => (
+            <tr key={expense.id}></tr>
+          ))}
         </tbody>
       </table>
     </div>
