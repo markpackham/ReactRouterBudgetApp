@@ -1,7 +1,8 @@
-import { formatCurrency } from "../helpers";
+import { calculateSpentByBudget, formatCurrency } from "../helpers";
 
 const BudgetItem = ({ budget }) => {
   const { id, name, amount, color } = budget;
+  const spent = calculateSpentByBudget(id);
 
   return (
     <div className="budget">
@@ -11,8 +12,8 @@ const BudgetItem = ({ budget }) => {
       </div>
       <progress max={amount} value="100"></progress>
       <div className="progress-text">
-        <small>... spent</small>
-        <small>... remaining</small>
+        <small>{formatCurrency(spent)} spent</small>
+        <small>{formatCurrency(amount - spent)} remaining</small>
       </div>
     </div>
   );
