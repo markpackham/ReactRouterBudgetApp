@@ -48,3 +48,11 @@ export const createExpense = ({ name, amount, budgetId }) => {
 export const deleteItem = ({ key }) => {
   return localStorage.removeItem(key);
 };
+
+// FORMATTING
+
+// Format currency
+export const formatCurrency = (amt) => {
+  // since we set the locale to undefined it sets the locale based on who visits the site
+  return amt.toLocaleString(undefined, {});
+};
