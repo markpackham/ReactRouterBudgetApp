@@ -1,10 +1,10 @@
-// React
+// react imports
 import { useEffect, useRef } from "react";
 
-// RRD
+// rrd imports
 import { useFetcher } from "react-router-dom";
 
-// Libraries
+// library imports
 import { PlusCircleIcon } from "@heroicons/react/24/solid";
 
 const AddExpenseForm = ({ budgets }) => {

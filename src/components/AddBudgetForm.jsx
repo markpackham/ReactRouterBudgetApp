@@ -1,10 +1,11 @@
-// React
+// reacts
 import { useEffect, useRef } from "react";
-// RRD
+
+// rrd imports
 import { Form, useFetcher } from "react-router-dom";
 
-// Libraries
-import { CurrencyPoundIcon } from "@heroicons/react/24/solid";
+// library imports
+import { CurrencyDollarIcon } from "@heroicons/react/24/solid";
 
 const AddBudgetForm = () => {
   const fetcher = useFetcher();
@@ -30,7 +31,7 @@ const AddBudgetForm = () => {
             type="text"
             name="newBudget"
             id="newBudget"
-            placeholder="e.g Groceries"
+            placeholder="e.g., Groceries"
             required
             ref={focusRef}
           />
@@ -42,20 +43,19 @@ const AddBudgetForm = () => {
             step="0.01"
             name="newBudgetAmount"
             id="newBudgetAmount"
-            placeholder="e.g £50"
+            placeholder="e.g., $350"
             required
-            // Decimal mode is handy for mobiles since it offers the "." symbol when typing
             inputMode="decimal"
           />
         </div>
         <input type="hidden" name="_action" value="createBudget" />
         <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
           {isSubmitting ? (
-            <span>Submitting...</span>
+            <span>Submitting…</span>
           ) : (
             <>
-              (<span>Create Budget</span>
-              <CurrencyPoundIcon width={20} />)
+              <span>Create budget</span>
+              <CurrencyDollarIcon width={20} />
             </>
           )}
         </button>
@@ -63,5 +63,4 @@ const AddBudgetForm = () => {
     </div>
   );
 };
-
 export default AddBudgetForm;
