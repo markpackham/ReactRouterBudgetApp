@@ -14,7 +14,7 @@ export const fetchData = (key) => {
 
 // get all items from local storage
 export const getAllMatchingItems = ({ category, key, value }) => {
-  const data = fetchData(cateogry) ?? [];
+  const data = fetchData(category) ?? [];
   return data.filter((item) => item[key] === value);
 };
 
