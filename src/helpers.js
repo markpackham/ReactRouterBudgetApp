@@ -1,5 +1,5 @@
 export const waait = () =>
-  new Promise((res) => setTimeout(res, Math.random() * 500));
+  new Promise((res) => setTimeout(res, Math.random() * 800));
 
 // colors
 const generateRandomColor = () => {
@@ -63,9 +63,8 @@ export const createExpense = ({ name, amount, budgetId }) => {
 // total spent by budget
 export const calculateSpentByBudget = (budgetId) => {
   const expenses = fetchData("expenses") ?? [];
-  // acc is the accumulator (thus our total value)
   const budgetSpent = expenses.reduce((acc, expense) => {
-    // check if the expense.d === budgetId I passed in otherwise exlude it
+    // check if expense.id === budgetId I passed in
     if (expense.budgetId !== budgetId) return acc;
 
     // add the current amount to my total
@@ -75,12 +74,10 @@ export const calculateSpentByBudget = (budgetId) => {
 };
 
 // FORMATTING
-
-// format dates
 export const formatDateToLocaleString = (epoch) =>
   new Date(epoch).toLocaleDateString();
 
-// format percentages
+// formating percentages
 export const formatPercentage = (amt) => {
   return amt.toLocaleString(undefined, {
     style: "percent",
@@ -90,7 +87,6 @@ export const formatPercentage = (amt) => {
 
 // format currency
 export const formatCurrency = (amt) => {
-  // since we set the locale to undefined it sets the locale based on who visits the site
   return amt.toLocaleString(undefined, {
     style: "currency",
     currency: "GBP",
