@@ -12,11 +12,11 @@ import { logoutAction } from "./actions/logout";
 
 // Routes
 import Dashboard, { dashboardAction, dashboardLoader } from "./pages/Dashboard";
+import Error from "./pages/Error";
 import ExpensesPage, {
   expensesAction,
   expensesLoader,
 } from "./pages/ExpensesPage";
-import Error from "./pages/Error";
 
 const router = createBrowserRouter([
   {
@@ -26,17 +26,11 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        // same as saying, path: "/",
         index: true,
         element: <Dashboard />,
         loader: dashboardLoader,
         action: dashboardAction,
         errorElement: <Error />,
-      },
-      {
-        path: "expenses",
-        element: <ExpensesPage />,
-        loader: expensesLoader,
       },
       {
         path: "expenses",
