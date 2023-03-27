@@ -8,10 +8,10 @@ import { toast } from "react-toastify";
 import Table from "../components/Table";
 
 // helpers
-import { fetchData } from "../helpers";
+import { deleteItem, fetchData } from "../helpers";
 
 // loader
-export function expensesLoader() {
+export async function expensesLoader() {
   const expenses = fetchData("expenses");
   return { expenses };
 }
