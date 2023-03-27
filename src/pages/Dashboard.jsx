@@ -63,6 +63,15 @@ export async function dashboardAction({ request }) {
       throw new Error("There was a problem creating your expense.");
     }
   }
+
+  if (_action === "deleteExpense") {
+    try {
+      deleteExpense;
+      return toast.success(`Expense deleted!`);
+    } catch (e) {
+      throw new Error("There was a problem deleting your expense.");
+    }
+  }
 }
 
 const Dashboard = () => {
