@@ -5,7 +5,13 @@ import { Link, useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
 
 //  helper functions
-import { createBudget, createExpense, fetchData, waait } from "../helpers";
+import {
+  createBudget,
+  createExpense,
+  deleteItem,
+  fetchData,
+  waait,
+} from "../helpers";
 
 // components
 import Intro from "../components/Intro";
@@ -66,8 +72,11 @@ export async function dashboardAction({ request }) {
 
   if (_action === "deleteExpense") {
     try {
-      deleteExpense;
-      return toast.success(`Expense deleted!`);
+      deleteItem({
+        key: "expenses",
+        id: values.expenseId,
+      });
+      return toast.success("Expense deleted!");
     } catch (e) {
       throw new Error("There was a problem deleting your expense.");
     }
