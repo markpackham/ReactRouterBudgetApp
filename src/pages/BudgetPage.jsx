@@ -15,11 +15,17 @@ export async function budgetLoader({ params }) {
     value: params.id,
   })[0];
 
+  const expenses = await getAllMatchingItems({
+    cateogry: "expenses",
+    key: "budgetId",
+    value: params.id,
+  })[0];
+
   if (!budget) {
     throw new Error("The budget you're trying to find doesn't exist");
   }
 
-  return { budget };
+  return { budget, expenses };
 }
 
 const BudgetPage = () => {
