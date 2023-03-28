@@ -1,3 +1,7 @@
+// libraries
+import { toast } from "react-toastify";
+
+// helpers
 import { deleteItem } from "../helpers";
 
 export function deleteBudget({ params }) {
@@ -6,6 +10,8 @@ export function deleteBudget({ params }) {
       key: "budgets",
       id: params.id,
     });
+
+    toast.success("Budget deleted successfully");
   } catch (error) {
     throw new Error("There was a problem deleting the budget");
   }
