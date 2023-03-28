@@ -20,7 +20,7 @@ export function deleteBudget({ params }) {
       value: params.id,
     });
 
-    associatedExpenses.array.forEach((expense) => {
+    associatedExpenses.forEach((expense) => {
       deleteItem({
         key: "expenses",
         id: expense.id,
